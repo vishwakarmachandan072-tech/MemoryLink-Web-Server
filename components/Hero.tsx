@@ -86,7 +86,7 @@ const Hero = () => {
           name="email"
           placeholder="name@example.com"
           required
-          className="
+          className=" 
             flex-1 w-full
             px-4 py-3 sm:py-2
             outline-none bg-transparent

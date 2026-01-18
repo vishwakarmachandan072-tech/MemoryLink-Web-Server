@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import NavBar from "@/components/NavBar";
 import { ScrollProvider } from "@/contexts/scrollContext";
 import ReactLenis from "lenis/react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -28,20 +29,21 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <ReactLenis
-          root
-          options={{
-            lerp:0.1,
-            duration: 1.2,
-            orientation: 'vertical',
-            gestureOrientation: 'vertical',
-            smoothWheel: true,
-            wheelMultiplier: 1,
-          }}
+            root
+            options={{
+              lerp: 0.1,
+              duration: 1.2,
+              orientation: 'vertical',
+              gestureOrientation: 'vertical',
+              smoothWheel: true,
+              wheelMultiplier: 1,
+            }}
           >
             <ScrollProvider>
               <div className="bg-back-light dark:bg-back-dark">
                 <div className="flex justify-center sticky top-0 z-10"><NavBar /></div>
                 {children}
+                <SpeedInsights />
               </div>
             </ScrollProvider>
           </ReactLenis>

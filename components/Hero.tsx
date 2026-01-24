@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Button from './Button'
 import { useScroll } from '@/contexts/scrollContext'
 import { SplitText } from 'gsap/all'
@@ -32,7 +32,9 @@ const Hero = () => {
       })
 
   }, { scope: heroRef })
-
+  
+  const [email, setEmail] = useState('');
+ 
   return (
     <div
       ref={heroRef}
@@ -83,10 +85,11 @@ const Hero = () => {
       >
         <input
           type="email"
-          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           placeholder="name@example.com"
           required
-          className=" 
+          className="
             flex-1 w-full
             px-4 py-3 sm:py-2
             outline-none bg-transparent
@@ -96,7 +99,7 @@ const Hero = () => {
             rounded-full
           "
         />
-        <Button title="Join the timeline" />
+        <Button email={email} title="Join the timeline" />
       </div>
     </div>
   )

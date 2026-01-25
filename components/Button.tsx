@@ -26,7 +26,7 @@ const Button = ({ title, email }: ButtonProps) => {
 
   try {
     setIsLoading(true);
-    setErrorOccured("");
+    // setErrorOccured("");
 
     const result = await postUsers(email);
 
@@ -37,6 +37,7 @@ const Button = ({ title, email }: ButtonProps) => {
     }
 
     // success case
+    setErrorOccured('')
     setIsOpen(true);
 
   } catch (error) {
